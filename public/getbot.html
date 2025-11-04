@@ -5,140 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get SHADOW V2 Bot - Connect Your WhatsApp</title>
     <meta name="description" content="Connect your WhatsApp to SHADOW V2 bot in seconds. Enter your phone number and get instant pairing.">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --red: #e50914;
-            --dark: #0b0b0b;
-            --light: #ffffff;
-            --gray: #222;
-        }
-
-        body {
-            background: linear-gradient(135deg, var(--dark) 70%, #1a0000);
-            color: var(--light);
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        .navbar {
-            background: rgba(10, 0, 0, 0.9);
-            padding: 15px 40px;
-            position: sticky;
-            top: 0;
-            border-bottom: 2px solid var(--red);
-            z-index: 1000;
-        }
-
-        .nav-logo .logo-text {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--light);
-            font-size: 1.6em;
-            font-weight: 900;
-            letter-spacing: 2px;
-        }
-
-        .nav-logo .logo-version {
-            color: var(--red);
-            font-weight: bold;
-            margin-left: 4px;
-        }
-
-        .nav-link {
-            color: var(--light);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .nav-link:hover {
-            color: var(--red);
-        }
-
-        .getbot-main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 90vh;
-            padding: 40px;
-        }
-
-        .form-card {
-            background: var(--gray);
-            border: 1px solid var(--red);
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 0 25px rgba(229, 9, 20, 0.3);
-            width: 100%;
-            max-width: 450px;
-            text-align: center;
-        }
-
-        .form-icon {
-            font-size: 2rem;
-        }
-
-        .form-header h2 {
-            margin: 10px 0;
-            font-family: 'Orbitron', sans-serif;
-            color: var(--red);
-        }
-
-        .form-header p {
-            font-size: 0.9em;
-            color: #ccc;
-        }
-
-        label {
-            text-align: left;
-            display: block;
-            margin-bottom: 5px;
-            color: var(--light);
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid var(--red);
-            border-radius: 8px;
-            background: #111;
-            color: var(--light);
-        }
-
-        .submit-btn {
-            background: var(--red);
-            color: var(--light);
-            border: none;
-            border-radius: 8px;
-            padding: 12px 20px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: background 0.3s;
-        }
-
-        .submit-btn:hover {
-            background: #ff1a1a;
-        }
-
-        .result {
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 12px;
-            background: #111;
-            border: 1px solid var(--red);
-        }
-
-        .pairing-code {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            color: var(--red);
-            letter-spacing: 3px;
-        }
-    </style>
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/getbot.css">
+    <link rel="stylesheet" href="/css/getbot-mobile-optimized.css">
+    <link rel="stylesheet" href="/css/getbot-animations.css">
 </head>
 <body>
     <div class="background-animation">
@@ -154,7 +29,7 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="/" style="text-decoration: none; display: flex; align-items: center; gap: 5px;">
-                    <span class="logo-text">SHADOW</span>
+                    <span class="logo-text">SAKURA</span>
                     <span class="logo-version">V2</span>
                 </a>
             </div>
@@ -167,10 +42,62 @@
     <main class="getbot-main">
         <div class="container">
             <div class="getbot-container">
+                <div class="getbot-info">
+                    <div class="info-content">
+                        <h1 class="getbot-title">
+                            <span class="title-main">Connect to</span>
+                            <span class="title-brand">SHADOW V2</span>
+                        </h1>
+                        <p class="getbot-subtitle">
+                            Get instant access to our advanced WhatsApp bot with AI integration, 
+                            media downloads, and premium features.
+                        </p>
+                        
+                        <div class="connection-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3>Enter Your Number</h3>
+                                    <p>Provide your WhatsApp phone number with country code</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3>Get Pairing Code</h3>
+                                    <p>Receive an 8-digit pairing code instantly</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3>Link in WhatsApp</h3>
+                                    <p>Go to Linked Devices and enter the code</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h3>Start Using</h3>
+                                    <p>Enjoy all premium features immediately</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="security-note">
+                            <div class="security-icon">🔒</div>
+                            <div class="security-text">
+                                <strong>100% Secure & Private</strong>
+                                <p>Your session is completely isolated and encrypted. We never access your personal messages.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="getbot-form-container">
                     <div class="form-card">
                         <div class="form-header">
-                            <div class="form-icon"></div>
+                            <div class="form-icon">🌸</div>
                             <h2>Connect WhatsApp</h2>
                             <p>Enter your phone number to get started</p>
                         </div>
@@ -245,9 +172,34 @@
                         </div>
                     </div>
 
-                    
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="card-icon">⚡</div>
+                            <div class="card-content">
+                                <h4>Instant Connection</h4>
+                                <p>Get connected in under 30 seconds</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="card-icon">🤖</div>
+                            <div class="card-content">
+                                <h4>AI Powered</h4>
+                                <p>Advanced AI chat integration</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="card-icon">📱</div>
+                            <div class="card-content">
+                                <h4>Multi-Device</h4>
+                                <p>Works on all your devices</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <script src="/js/getbot.js"></script>
 </body>
-</html>
+    </html>
