@@ -7,7 +7,7 @@ const {
   getContentType,
   fetchLatestBaileysVersion,
   Browsers,
-} = require("@teamolduser/baileys");
+} = require("baileys");
 
 const fs = require("fs");
 const path = require("path");
