@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get SHADOW V2 Bot - Connect Your WhatsApp</title>
+    <meta name="description" content="Connect your WhatsApp to SHADOW V2 bot in seconds. Enter your phone number and get instant pairing.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #e50914;
+            --dark: #0b0b0b;
+            --light: #ffffff;
+            --gray: #222;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--dark) 70%, #1a0000);
+            color: var(--light);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background: rgba(10, 0, 0, 0.9);
+            padding: 15px 40px;
+            position: sticky;
+            top: 0;
+            border-bottom: 2px solid var(--red);
+            z-index: 1000;
+        }
+
+        .nav-logo .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--light);
+            font-size: 1.6em;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .nav-logo .logo-version {
+            color: var(--red);
+            font-weight: bold;
+            margin-left: 4px;
+        }
+
+        .nav-link {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--red);
+        }
+
+        .getbot-main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90vh;
+            padding: 40px;
+        }
+
+        .form-card {
+            background: var(--gray);
+            border: 1px solid var(--red);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 0 25px rgba(229, 9, 20, 0.3);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        .form-icon {
+            font-size: 2rem;
+        }
+
+        .form-header h2 {
+            margin: 10px 0;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--red);
+        }
+
+        .form-header p {
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
+        label {
+            text-align: left;
+            display: block;
+            margin-bottom: 5px;
+            color: var(--light);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--red);
+            border-radius: 8px;
+            background: #111;
+            color: var(--light);
+        }
+
+        .submit-btn {
+            background: var(--red);
+            color: var(--light);
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #ff1a1a;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            background: #111;
+            border: 1px solid var(--red);
+        }
+
+        .pairing-code {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--red);
+            letter-spacing: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation">
+        <div class="particles" id="particles"></div>
+        <div class="wave-container">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+        </div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/" style="text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                    <span class="logo-text">SHADOW</span>
+                    <span class="logo-version">V2</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="/" class="nav-link">← Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="getbot-main">
+        <div class="container">
+            <div class="getbot-container">
+                <div class="getbot-form-container">
+                    <div class="form-card">
+                        <div class="form-header">
+                            <div class="form-icon"></div>
+                            <h2>Connect WhatsApp</h2>
+                            <p>Enter your phone number to get started</p>
+                        </div>
+
+                        <form id="pairingForm" class="pairing-form">
+                            <div class="input-group">
+                                <label for="phoneNumber">WhatsApp Phone Number</label>
+                                <div class="phone-input-container">
+                                    <input 
+                                        type="tel" 
+                                        id="phoneNumber" 
+                                        placeholder="13056978303" 
+                                        required 
+                                        pattern="[0-9+]{8,16}"
+                                        class="phone-input-full"
+                                    >
+                                </div>
+                                <div class="input-help">
+                                    Enter your complete phone number with country code (e.g., 13056978303). 
+                                    The + sign will be automatically removed if you include it.
+                                </div>
+                            </div>
+
+                            <button type="submit" class="submit-btn" id="submitBtn">
+                                <span class="btn-text">Get Pairing Code</span>
+                                <span class="btn-loader" style="display: none;">
+                                    <div class="spinner"></div>
+                                    Connecting...
+                                </span>
+                            </button>
+                        </form>
+
+                        <div id="resultContainer" class="result-container" style="display: none;">
+                            <div id="successResult" class="result success" style="display: none;">
+                                <div class="result-icon">✅</div>
+                                <h3>Pairing Code Generated!</h3>
+                                <div class="pairing-code-display">
+                                    <div class="code-label">Your 8-digit pairing code:</div>
+                                    <div class="code-container">
+                                        <div id="pairingCode" class="pairing-code" title="Click to copy">12345678</div>
+                                        <button class="copy-btn" onclick="copyPairingCode()" title="Copy to clipboard">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="code-instructions">🖱️ Click the code or copy button to copy instantly</div>
+                                    <div class="code-timer">
+                                        <span id="codeTimer">⏰ Expires in 20 seconds</span>
+                                    </div>
+                                </div>
+                                <div class="instructions">
+                                    <h4>How to use this code:</h4>
+                                    <ol>
+                                        <li>Open WhatsApp on your phone</li>
+                                        <li>Go to <strong>Settings → Linked Devices</strong></li>
+                                        <li>Tap <strong>"Link a Device"</strong></li>
+                                        <li>Tap <strong>"Link with phone number instead"</strong></li>
+                                        <li>Enter the code above</li>
+                                    </ol>
+                                </div>
+                                <button class="try-again-btn" onclick="location.reload()">Get New Code</button>
+                            </div>
+
+                            <div id="errorResult" class="result error" style="display: none;">
+                                <div class="result-icon">❌</div>
+                                <h3>Connection Failed</h3>
+                                <p id="errorMessage">Something went wrong. Please try again.</p>
+                                <button class="try-again-btn" onclick="location.reload()">Try Again</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+    </main>
+
+    <script src="/js/getbot.js"></script>
+</body>
+</html>

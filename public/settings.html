@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>𝐒𝐇𝐀𝐃𝐎𝐖 V2 - 𝐁𝐎𝐓 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a0000 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #fff;
+    }
+
+    .container {
+      background: #121212;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(255, 0, 0, 0.2);
+      max-width: 600px;
+      width: 100%;
+      overflow: hidden;
+      border: 2px solid #ff0000;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #ff0000, #8b0000);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .header p {
+      opacity: 0.9;
+      font-size: 1.1rem;
+    }
+
+    .content {
+      padding: 40px;
+    }
+
+    .auth-section h3, 
+    .settings-section h3 {
+      color: #ff4d4d;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .phone-display {
+      background: #1e1e1e;
+      border: 2px solid #ff0000;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      color: #fff;
+      text-align: center;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 15px 20px;
+      border: 2px solid #2a2a2a;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    .input-group input:focus {
+      outline: none;
+      border-color: #ff0000;
+      background: #0f0f0f;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+    }
+
+    .input-group label {
+      position: absolute;
+      top: -10px;
+      left: 15px;
+      background: #121212;
+      padding: 0 10px;
+      color: #ccc;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff0000, #8b0000);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .settings-section {
+      display: none;
+    }
+
+    .settings-section.show {
+      display: block;
+    }
+
+    .setting-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid #333;
+    }
+
+    .setting-info h4 {
+      color: #fff;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    .setting-info p {
+      color: #bbb;
+      font-size: 0.9rem;
+    }
+
+    /* Toggle Switch */
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #444;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #ff0000;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .success-message {
+      background: rgba(0, 255, 0, 0.1);
+      color: #00ff7f;
+      border: 1px solid #00ff7f;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      display: none;
+    }
+
+    .error-message {
+      background: rgba(255, 0, 0, 0.1);
+      color: #ff4d4d;
+      border: 1px solid #ff0000;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      display: none;
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .spinner {
+      border: 3px solid #333;
+      border-top: 3px solid #ff0000;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 10px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .footer {
+      background: #1a1a1a;
+      padding: 20px;
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+      border-top: 1px solid #222;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 10px;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .content {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>⚫ 𝐒𝐇𝐀𝐃𝐎𝐖 𝐕2 ⚫</h1>
+      <p>ʙᴏᴛ sᴇᴛᴛɪɴɢs ᴘᴀɴᴇʟ</p>
+    </div>
+
+    <div class="content">
+      <div class="auth-section" id="authSection">
+        <h3>🔐 ᴀᴄᴄᴇss ʏᴏᴜʀ sᴇᴛᴛɪɴɢs</h3>
+        <p style="color: #ccc; margin-bottom: 20px;">
+          ᴇɴᴛᴇʀ ʏᴏᴜʀ ᴜɴɪǫᴜᴇ 8-character ᴘᴀssᴡᴏʀᴅ ᴛᴏ ᴀᴄᴄᴇss ʏᴏᴜʀ ʙᴏᴛ sᴇᴛᴛɪɴɢs.
+        </p>
+        
+        <div class="input-group">
+          <label for="password">ʏᴏᴜʀ ᴘᴀssᴡᴏʀᴅ</label>
+          <input type="password" id="password" placeholder="Enter your password" maxlength="8">
+        </div>
+
+        <button class="btn btn-primary" onclick="authenticate()">ᴀᴄᴄᴇss sᴇᴛᴛɪɴɢs</button>
+      </div>
+
+      <div class="settings-section" id="settingsSection">
+        <h3>⚙️ Bot Settings</h3>
+        <p style="color: #ccc; margin-bottom: 30px;">ᴄᴜsᴛᴏᴍɪᴢᴇ ʏᴏᴜʀ ʙᴏᴛ's ʙᴇʜᴀᴠɪᴏʀ. ᴄʜᴀɴɢᴇs ᴛᴀᴋᴇ ᴇғғᴇᴄᴛ ɪᴍᴍᴇᴅɪᴀᴛᴇʟʏ.</p>
+
+        <div class="setting-item">
+          <div class="setting-info">
+            <h4>👀 ᴀᴜᴛᴏ sᴛᴀᴛᴜs ᴠɪᴇᴡs</h4>
+            <p>ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴠɪᴇᴡ ᴡʜᴀᴛsᴀᴘᴘ sᴛᴀᴛᴜs ᴜᴘᴅᴀᴛᴇs</p>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="autoReadStatus">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-info">
+            <h4>❤️ Status Reactions</h4>
+            <p>ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ʀᴇᴀᴄᴛ ᴛᴏ sᴛᴀᴛᴜs ᴜᴘᴅᴀᴛᴇs ᴡɪᴛʜ 💚</p>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="autoReactStatus">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-info">
+            <h4>🛡️ ᴀɴᴛɪ-ᴅᴇʟᴇᴛᴇ ᴘʀᴏᴛᴇᴄᴛɪᴏɴ</h4>
+            <p>sᴀᴠᴇ ᴀɴᴅ ʀᴇᴘᴏsᴛ ᴅᴇʟᴇᴛᴇᴅ ᴍᴇssᴀɢᴇs ɪɴ ɢʀᴏᴜᴘs</p>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="antiDelete">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <button class="btn btn-primary" onclick="saveSettings()" style="margin-top: 30px;">💾 sᴀᴠᴇ sᴇᴛᴛɪɴɢs</button>
+      </div>
+
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Processing...</p>
+      </div>
+
+      <div class="success-message" id="successMessage"></div>
+      <div class="error-message" id="errorMessage"></div>
+    </div>
+
+    <div class="footer">
+     ᴄʀᴇᴀᴛᴇᴅ ʙʏ <b>ᴅʏʙʏ ᴅᴇᴠ</b> | 2025 | sᴜᴘᴘᴏʀᴛ: <b>+50934960331</b>
+    </div>
+  </div>
+
+  <script>
+    let currentPhone = '';
+        let currentPassword = '';
+
+        // Remove phone number requirement
+        window.onload = function() {
+            // No longer need to get phone from URL
+        }
+
+        async function authenticate() {
+            const password = document.getElementById('password').value.trim();
+            
+            if (!password) {
+                showError('Please enter your password');
+                return;
+            }
+
+            if (password.length !== 8) {
+                showError('Password must be 8 characters long');
+                return;
+            }
+
+            showLoading(true);
+
+            try {
+                const response = await fetch('/api/settings/auth', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        password: password
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    currentPassword = password;
+                    currentPhone = data.phoneNumber;
+                    showSettings(data.settings);
+                    showSuccess(`Authentication successful! Welcome ${data.phoneNumber}. Password sent to your WhatsApp separately for easy copying.`);
+                    
+                    // Show phone number after successful authentication
+                    showPhoneInfo(data.phoneNumber);
+                } else {
+                    showError(data.message || 'Invalid password');
+                }
+            } catch (error) {
+                showError('Connection error. Please try again.');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        function showPhoneInfo(phoneNumber) {
+            // Create a phone display element if not exists
+            let phoneDisplay = document.getElementById('phoneDisplay');
+            if (!phoneDisplay) {
+                phoneDisplay = document.createElement('div');
+                phoneDisplay.id = 'phoneDisplay';
+                phoneDisplay.className = 'phone-display';
+                document.getElementById('settingsSection').insertBefore(phoneDisplay, document.getElementById('settingsSection').firstChild);
+            }
+            phoneDisplay.textContent = `Authenticated for: +${phoneNumber}`;
+            phoneDisplay.style.display = 'block';
+        }
+
+        function showSettings(settings) {
+            document.getElementById('authSection').style.display = 'none';
+            document.getElementById('settingsSection').classList.add('show');
+
+            // Set current settings
+            document.getElementById('autoReadStatus').checked = settings.autoReadStatus;
+            document.getElementById('autoReactStatus').checked = settings.autoReactStatus;
+            document.getElementById('autoStatusLike').checked = settings.autoStatusLike;
+            document.getElementById('autoRecording').checked = settings.autoRecording;
+            document.getElementById('antiDelete').checked = settings.antiDelete;
+        }
+
+        async function saveSettings() {
+            if (!currentPassword) {
+                showError('Authentication required');
+                return;
+            }
+
+            const settings = {
+                autoReadStatus: document.getElementById('autoReadStatus').checked,
+                autoReactStatus: document.getElementById('autoReactStatus').checked,
+                autoStatusLike: document.getElementById('autoStatusLike').checked,
+                autoRecording: document.getElementById('autoRecording').checked,
+                antiDelete: document.getElementById('antiDelete').checked
+            };
+
+            showLoading(true);
+
+            try {
+                const response = await fetch('/api/settings/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        password: currentPassword,
+                        settings: settings
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showSuccess('Settings saved successfully! Changes are now active on your bot.');
+                } else {
+                    showError(data.message || 'Failed to save settings');
+                }
+            } catch (error) {
+                showError('Connection error. Please try again.');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        function showLoading(show) {
+            document.getElementById('loading').style.display = show ? 'block' : 'none';
+        }
+
+        function showSuccess(message) {
+            const element = document.getElementById('successMessage');
+            element.textContent = message;
+            element.style.display = 'block';
+            hideError();
+            setTimeout(() => {
+                element.style.display = 'none';
+            }, 7000);
+        }
+
+        function showError(message) {
+            const element = document.getElementById('errorMessage');
+            element.textContent = message;
+            element.style.display = 'block';
+            hideSuccess();
+        }
+
+        function hideSuccess() {
+            document.getElementById('successMessage').style.display = 'none';
+        }
+
+        function hideError() {
+            document.getElementById('errorMessage').style.display = 'none';
+        }
+  </script>
+</body>
+</html>
