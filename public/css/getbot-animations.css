@@ -1,0 +1,360 @@
+/* =====================================================
+   SAKURA V2 - Enhanced Animations & Performance
+   Mobile-optimized animations and smooth interactions
+   ===================================================== */
+
+/* Mobile-optimized fade-in animations */
+@keyframes mobileSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes mobileSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes mobilePulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.02);
+        opacity: 0.9;
+    }
+}
+
+@keyframes mobileGlow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 0, 64, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(255, 0, 64, 0.5);
+    }
+}
+
+/* Apply animations to mobile elements */
+@media (max-width: 480px) {
+    /* Animate page elements on load */
+    .getbot-info {
+        animation: mobileSlideUp 0.6s ease-out;
+    }
+    
+    .getbot-form-container {
+        animation: mobileSlideUp 0.8s ease-out;
+    }
+    
+    .step {
+        animation: mobileSlideIn 0.5s ease-out;
+        animation-fill-mode: both;
+    }
+    
+    .step:nth-child(1) { animation-delay: 0.1s; }
+    .step:nth-child(2) { animation-delay: 0.2s; }
+    .step:nth-child(3) { animation-delay: 0.3s; }
+    .step:nth-child(4) { animation-delay: 0.4s; }
+    
+    .info-card {
+        animation: mobileSlideUp 0.4s ease-out;
+        animation-fill-mode: both;
+    }
+    
+    .info-card:nth-child(1) { animation-delay: 0.2s; }
+    .info-card:nth-child(2) { animation-delay: 0.3s; }
+    .info-card:nth-child(3) { animation-delay: 0.4s; }
+    
+    /* Enhanced button interactions */
+    .submit-btn {
+        transition: all 0.2s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .submit-btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        transform: translate(-50%, -50%);
+    }
+    
+    .submit-btn:active::before {
+        width: 200%;
+        height: 200%;
+    }
+    
+    .submit-btn:hover:not(:disabled) {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(255, 0, 64, 0.25);
+    }
+    
+    .submit-btn:active {
+        transform: translateY(0);
+    }
+    
+    /* Pairing code animation */
+    .pairing-code {
+        transition: all 0.2s ease;
+    }
+    
+    .pairing-code:hover {
+        animation: mobilePulse 1.5s ease-in-out infinite;
+    }
+    
+    /* Copy button enhancement */
+    .copy-btn {
+        transition: all 0.2s ease;
+        position: relative;
+    }
+    
+    .copy-btn:hover {
+        transform: scale(1.05);
+        animation: mobileGlow 2s ease-in-out infinite;
+    }
+    
+    .copy-btn:active {
+        transform: scale(0.95);
+    }
+    
+    /* Form input animations */
+    .phone-input-full,
+    .comment-input,
+    .comment-textarea {
+        transition: all 0.2s ease;
+        position: relative;
+    }
+    
+    .phone-input-full:focus,
+    .comment-input:focus,
+    .comment-textarea:focus {
+        transform: scale(1.01);
+        box-shadow: 0 0 0 2px rgba(255, 0, 64, 0.2);
+    }
+    
+    /* Comment animations */
+    .comment-item {
+        animation: mobileSlideUp 0.5s ease-out;
+        animation-fill-mode: both;
+    }
+    
+    .comment-submit-btn {
+        transition: all 0.2s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .comment-submit-btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        transform: translate(-50%, -50%);
+    }
+    
+    .comment-submit-btn:active::before {
+        width: 200%;
+        height: 200%;
+    }
+    
+    /* Loading animation optimization */
+    .spinner {
+        animation: mobileSpinnerRotate 0.8s linear infinite;
+    }
+    
+    @keyframes mobileSpinnerRotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    .loading-spinner {
+        animation: mobileSpinnerRotate 1s linear infinite;
+    }
+    
+    /* Navbar scroll animation */
+    .navbar {
+        transition: all 0.2s ease;
+    }
+    
+    .navbar.scrolled {
+        backdrop-filter: blur(12px);
+        background: rgba(0, 0, 0, 0.95);
+    }
+    
+    /* Touch feedback */
+    .step:active,
+    .info-card:active,
+    .comment-item:active {
+        transform: scale(0.98);
+    }
+    
+    .step:hover,
+    .info-card:hover {
+        transform: translateY(-2px);
+        transition: all 0.2s ease;
+    }
+    
+    /* Optimized background animation for mobile */
+    .background-animation {
+        opacity: 0.5; /* Reduce opacity for better performance */
+    }
+    
+    .particles::before {
+        animation: mobileFloatOptimized 6s ease-in-out infinite;
+    }
+    
+    @keyframes mobileFloatOptimized {
+        0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+            opacity: 0.2;
+        }
+        50% {
+            transform: translateY(-10px) rotate(90deg);
+            opacity: 0.4;
+        }
+    }
+    
+    .wave {
+        animation: mobileWaveOptimized 4s ease-in-out infinite;
+    }
+    
+    @keyframes mobileWaveOptimized {
+        0%, 100% {
+            transform: translateX(-50%) translateY(0px);
+        }
+        50% {
+            transform: translateX(-50%) translateY(-5px);
+        }
+    }
+    
+    /* Smooth scrolling for mobile */
+    html {
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Enhanced form validation feedback */
+    .phone-input-full:valid {
+        border-color: #00ff88;
+        box-shadow: 0 0 0 1px rgba(0, 255, 136, 0.2);
+        animation: mobileSuccessGlow 2s ease-in-out infinite;
+    }
+    
+    @keyframes mobileSuccessGlow {
+        0%, 100% {
+            box-shadow: 0 0 0 1px rgba(0, 255, 136, 0.2);
+        }
+        50% {
+            box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.4);
+        }
+    }
+    
+    .phone-input-full:invalid:not(:placeholder-shown) {
+        border-color: #ff4444;
+        animation: mobileShake 0.5s ease-in-out;
+    }
+    
+    @keyframes mobileShake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        75% { transform: translateX(5px); }
+    }
+}
+
+/* Tablet optimizations */
+@media (min-width: 481px) and (max-width: 768px) {
+    .step,
+    .info-card,
+    .comment-item {
+        transition: all 0.3s ease;
+    }
+    
+    .step:hover,
+    .info-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(255, 0, 64, 0.15);
+    }
+    
+    .submit-btn:hover:not(:disabled),
+    .comment-submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 0, 64, 0.25);
+    }
+}
+
+/* Performance optimization for older devices */
+@media (max-width: 480px) and (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    .background-animation {
+        display: none;
+    }
+}
+
+/* Hardware acceleration hints */
+@media (max-width: 480px) {
+    .submit-btn,
+    .comment-submit-btn,
+    .copy-btn,
+    .step,
+    .info-card,
+    .comment-item {
+        will-change: transform;
+        transform: translateZ(0);
+    }
+    
+    .phone-input-full:focus,
+    .comment-input:focus,
+    .comment-textarea:focus {
+        will-change: transform, box-shadow;
+    }
+}
+
+/* Staggered animation for comments loading */
+.comment-item:nth-child(1) { animation-delay: 0.1s; }
+.comment-item:nth-child(2) { animation-delay: 0.2s; }
+.comment-item:nth-child(3) { animation-delay: 0.3s; }
+.comment-item:nth-child(4) { animation-delay: 0.4s; }
+.comment-item:nth-child(5) { animation-delay: 0.5s; }
+
+/* Enhanced touch interactions */
+@media (pointer: coarse) {
+    .submit-btn,
+    .comment-submit-btn,
+    .copy-btn,
+    .pagination-btn {
+        -webkit-tap-highlight-color: rgba(255, 0, 64, 0.2);
+        touch-action: manipulation;
+    }
+    
+    .phone-input-full,
+    .comment-input,
+    .comment-textarea {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
