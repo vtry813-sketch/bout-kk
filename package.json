@@ -7,7 +7,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@teamolduser/baileys": "^8.5.0",
+    "baileys": "npm:baileys-mod@latest",
     "@vreden/youtube_scraper": "^1.2.4",
     "adm-zip": "^0.5.16",
     "api-dylux": "^1.8.5",
