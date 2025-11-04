@@ -31,22 +31,21 @@ const { File } = require("megajs");
 const prefix = config.PREFIX; 
 const os = require('os'); 
 const moment = require('moment'); 
-const userJid = decodeJid(m.sender); // si tu veux l’ID de l’expéditeur
-
 
 const ownerNumber = config.OWNER_NUM;
 
-// Helper function to decode JID
+// 🧩 Fonction pour décoder les JID WhatsApp
 function decodeJid(jid) {
   try {
-    if (!jid || typeof jid !== 'string') return jid
+    if (!jid || typeof jid !== "string") return jid;
     if (/:\d+@/gi.test(jid)) {
-      const decode = jidDecode(jid)
-      if (decode?.user && decode?.server) return `${decode.user}@${decode.server}`
+      const decode = jidDecode(jid);
+      if (decode?.user && decode?.server)
+        return `${decode.user}@${decode.server}`;
     }
-    return jid
+    return jid;
   } catch {
-    return jid
+    return jid;
   }
 }
 
