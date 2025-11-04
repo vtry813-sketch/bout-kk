@@ -31,7 +31,7 @@ const { File } = require("megajs");
 const prefix = config.PREFIX; 
 const os = require('os'); 
 const moment = require('moment'); 
-const userJid = decodeJid(someVariable);
+const userJid = decodeJid(m.sender); // si tu veux l’ID de l’expéditeur
 
 
 const ownerNumber = config.OWNER_NUM;
