@@ -15,7 +15,7 @@ function convertToBool(text, fault = "true") {
 module.exports = {
   SESSION_ID: process.env.SESSION_ID || "",
   PHONE_NUMBER: process.env.PHONE_NUMBER || "",
-  PAIRING_CODE_BRAND: process.env.PAIRING_CODE_BRAND || "SHADOW-V2",
+  PAIRING_CODE_BRAND: process.env.PAIRING_CODE_BRAND || "SHADOWV2",
   OWNER_NUM: process.env.OWNER_NUM || "50934960331",
   PREFIX: process.env.PREFIX || ".",
   MODE : process.env.MODE || "public", 
@@ -28,6 +28,6 @@ module.exports = {
   AUTO_STATUS_REACT: process.env.AUTO_STATUS_REACT || "true", // Enable auto-reactions to status
   AUTO_REACT_ENABLED: process.env.AUTO_REACT_ENABLED || "true", // Enable auto-reactions to messages
   // MEGA.nz credentials for session backup
-  MEGA_EMAIL: process.env.MEGA_EMAIL || "",
-  MEGA_PASSWORD: process.env.MEGA_PASSWORD || "",
+  MEGA_EMAIL: process.env.MEGA_EMAIL || "tizergameht@gmail.com",
+  MEGA_PASSWORD: process.env.MEGA_PASSWORD || "mike12&&",
 };
