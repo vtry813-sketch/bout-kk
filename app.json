@@ -1,0 +1,37 @@
+{
+  "name": "SAKURA V2",
+  "description": "Advanced Multi-User WhatsApp bot made by Andy Mrlit",
+  "logo": "https://telegra.ph/file/ad25b2227fa2a1a01b707.jpg",
+  "keywords": ["bot"],
+  "success_url": "/",
+
+  "env": {
+    "SESSION_ID": {
+      "description": "Put your session-id here.",
+      "required": true
+    },
+    "OWNER_NUM": {
+      "description": "Your WhatsApp number including country code (e.g., 263XXXXXXXX).",
+      "required": true
+    },
+    "PREFIX": {
+      "description": "Command prefix (default: .)",
+      "required": false
+    },
+    "AUTO_RECORDING": {
+      "description": "Set to true to show recording presence when typing.",
+      "required": false
+    },
+    "Mode": {
+      "description": "Set bot mode: public / private / groups / inbox",
+      "required": true
+    }
+  },
+
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs.git"
+    }
+  ],
+  "stack": "heroku-24"
+}
